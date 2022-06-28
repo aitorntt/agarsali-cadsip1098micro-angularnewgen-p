@@ -1,0 +1,65 @@
+<div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="Warning.code">
+    <strong>{{Warning.code}} - {{Warning.message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="Error.code">
+    <strong>{{Error.code}} - {{Error.message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="Info.code">
+    <strong>{{Info.code}} - {{Info.message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="container">
+    <h2>Detail</h2>
+    <br />
+
+    <div class="actions">
+        <button type="button" class="btn btn-secondary btn-action" (click)="volver()">volver</button>
+    </div>
+    <form>
+        <div class="form-group row">
+            <label for="username" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="datausername" name="datausername" [(ngModel)]="data.username" 
+                    maxlength="250"  minlength="0" />
+                </div> 
+        </div>
+        <div class="form-group row">
+            <label for="surnames" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="datasurnames" name="datasurnames" [(ngModel)]="data.surnames" 
+                    maxlength="250"  minlength="0" />
+                </div> 
+        </div>
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="dataemail" name="dataemail" [(ngModel)]="data.email" 
+                    maxlength="250"  minlength="0" />
+                </div> 
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="dataname" name="dataname" [(ngModel)]="data.name" 
+                    maxlength="250"  minlength="0" />
+                </div> 
+        </div>
+        <div class="form-group row">
+            <label for="username" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" 
+                    maxlength="250"  minlength="0" />
+                </div> 
+        </div>
+    </form>
+</div>

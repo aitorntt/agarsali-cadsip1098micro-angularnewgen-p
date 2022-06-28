@@ -1,0 +1,19 @@
+<table [className]="class">
+  <tr>
+    <th *ngFor="let column of columns">
+      {{column}}
+    </th>
+  </tr>
+
+  <tr *ngFor="let row of iterationField" (click)="onRowClick(row)" (dblclick)="onRowDblClick(row)">
+    <td *ngFor="let field of fields">
+      <ng-container *ngIf="field.isChildren; else simpleField">
+      {{path (field.name) (row)}}
+      </ng-container>
+      <ng-template #simpleField>
+	{{field.name}}
+      </ng-template>
+    </td>
+  </tr>
+</table>
+<deda-pagination *ngIf="itemsPerPage && queryTotal" [itemsPerPage]="itemsPerPage" [currentPage]="currentPage"  [queryTotal]="queryTotal" (changePage)="onPageChange($event)"></deda-pagination>

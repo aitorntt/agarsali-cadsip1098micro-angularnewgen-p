@@ -1,0 +1,3 @@
+<select [className]="class">
+  <option  [ngValue]="object[valueProp]" *ngFor="let object of iterationField | slice:0:iterationLimit">{{object[textProp]}}</option>
+</select>

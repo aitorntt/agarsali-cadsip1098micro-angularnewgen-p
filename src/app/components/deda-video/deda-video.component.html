@@ -1,0 +1,16 @@
+<video
+  [attr.width]="width || 'auto'"
+  [preload]="preload"
+  [poster]="poster"
+  [muted]="muted"
+  [loop]="loop"
+  [attr.height]="height || 'auto'"
+  [ngStyle]="style"
+  controls
+  [autoplay]="autoplay"
+  [className]="class"
+>
+  <source [src]="src" [media]="media" [type]="type">
+  <source src="movie.ogg" type="video/ogg">
+  {{text}}
+</video>

@@ -1,0 +1,12 @@
+
+.actions {
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-action {
+	margin-left: 1%;
+}

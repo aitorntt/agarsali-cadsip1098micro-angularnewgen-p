@@ -1,0 +1,54 @@
+<div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="Warning.code">
+    <strong>{{Warning.code}} - {{Warning.message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="Error.code">
+    <strong>{{Error.code}} - {{Error.message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="Info.code">
+    <strong>{{Info.code}} - {{Info.message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="container">
+    <h2>ConditionalLoop</h2>
+    <br />
+
+    <div class="actions">
+        <button type="button" class="btn btn-secondary btn-action" (click)="showResults(username)">showResults</button>
+        <button type="button" class="btn btn-secondary btn-action" (click)="volver()">volver</button>
+        <button type="button" class="btn btn-secondary btn-action" (click)="addUsuario()">addUsuario</button>
+        <button type="button" class="btn btn-secondary btn-action" (click)="addTitulo()">addTitulo</button>
+    </div>
+    <form>
+        <div class="form-group row">
+            <label for="message" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="message" name="message" [(ngModel)]="message" 
+                    maxlength="250"  minlength="0" />
+                </div> 
+        </div>
+        <div class="form-group row">
+            <label for="code" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input type="number" class="form-control" id="code" name="code" [(ngModel)]="code" 
+                    maxlength="250"  minlength="0" />
+                </div> 
+        </div>
+        <div class="form-group row">
+            <label for="username" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" 
+                    maxlength="250"  minlength="0" />
+                </div> 
+        </div>
+    </form>
+</div>

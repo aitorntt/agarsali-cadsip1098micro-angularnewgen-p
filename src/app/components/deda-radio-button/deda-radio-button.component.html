@@ -1,0 +1,21 @@
+<input
+  type="radio"
+  [name]="name"
+  [autofocus]="autofocus"
+  [attr.form]="form"
+  [(ngModel)]="text"
+  [required]="required"
+  [checked]="checked"
+  [disabled]="disabled"
+  [value]="value"
+  (ngModelChange)="inputChange()"
+  
+    [title]="title" [tabindex]="tabindex"	[ngStyle]="style" [spellcheck]="spellcheck"
+    [lang]="lang" [id]="id" [hidden]="hidden" [draggable]="draggable"
+    [dir]="direction" [attr.contenteditable]="contenteditable" [attr.accesskey]="accessKey"
+    [className]="class" (click)="onClickEvent($event)" (dblclick)="onDblClickEvent($event)"
+    (mouseover)="onMouseOverEvent($event)" (mouseup)="onMouseUpEvent($event)"
+    (mouseout)="onMouseOutEvent($event)" (mousemove)="onMouseMoveEvent($event)" (wheel)="onWheelEvent($event)"
+    (keypress)="onKeyPressEvent($event)" (keydown)="onKeyDownEvent($event)" (keyup)="onKeyUpEvent($event)"
+    (blur)="onBlurEvent($event)"
+/>

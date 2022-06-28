@@ -1,0 +1,8 @@
+<ul class="pagination">
+  <li><a class="page-link"> Items per page: {{itemsPerPage}}</a></li>
+  <li><a class="page-link"> Page {{currentPage}}</a></li>
+  <li class="page-item" [ngClass]="{'disabled': currentPage <= 1}"><a class="page-link" [routerLink]="" (click)="onFirstPage()">&laquo;</a></li> 
+  <li class="page-item" [ngClass]="{'disabled': currentPage <= 1}"><a class="page-link" [routerLink]="" (click)="onPreviousPage()">&lsaquo;</a></li> 
+  <li class="page-item" [ngClass]="{'disabled': currentPage >= lastPage}"><a class="page-link" [routerLink]="" (click)="onNextPage()">&rsaquo;</a></li> 
+  <li class="page-item" [ngClass]="{'disabled': currentPage >= lastPage}"><a class="page-link" [routerLink]="" (click)="onLastPage()">&raquo;</a></li>
+</ul>

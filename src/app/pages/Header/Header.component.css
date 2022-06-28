@@ -1,0 +1,17 @@
+.header {
+   	width: 100%;
+    background-color: #f8f9fa;
+    padding: 5px;
+}
+
+.actions {
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-action {
+	margin-left: 1%;
+}
