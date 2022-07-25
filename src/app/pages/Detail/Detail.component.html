@@ -1,65 +1,20 @@
-<div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="Warning.code">
-    <strong>{{Warning.code}} - {{Warning.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
-<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="Error.code">
-    <strong>{{Error.code}} - {{Error.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
-<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="Info.code">
-    <strong>{{Info.code}} - {{Info.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="container">
-    <h2>Detail</h2>
-    <br />
-
-    <div class="actions">
-        <button type="button" class="btn btn-secondary btn-action" (click)="volver()">volver</button>
-    </div>
-    <form>
-        <div class="form-group row">
-            <label for="username" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" id="datausername" name="datausername" [(ngModel)]="data.username" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-        <div class="form-group row">
-            <label for="surnames" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" id="datasurnames" name="datasurnames" [(ngModel)]="data.surnames" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-        <div class="form-group row">
-            <label for="email" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" id="dataemail" name="dataemail" [(ngModel)]="data.email" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-        <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" id="dataname" name="dataname" [(ngModel)]="data.name" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-        <div class="form-group row">
-            <label for="username" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-    </form>
+<link rel="stylesheet" href="/dist/resources/jgaruz/angcomposition/bootstrap.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+  crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="/dist/resources/jgaruz/angcomposition/global.css" />
+<div class="page">
+  <h1 class="title">User details{{username}}</h1>
+  <hr class="separador" />
+  <div class="formulario">
+    <div class="label"><label>User: {{data.username}}</label></div>
+    <div class="label"><label>Email: {{data.email}}</label></div>
+    <div class="label"><label>Name: {{data.name}}</label></div>
+    <div class="label"><label>Surnames: {{data.surnames}}</label></div>
+    <div class="espacio"><button (click)="volver()" class="button-blueberry buttonBerry-text btn">Return</button></div>
+  </div>
 </div>

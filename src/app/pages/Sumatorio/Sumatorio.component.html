@@ -1,37 +1,21 @@
-<div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="Warning.code">
-    <strong>{{Warning.code}} - {{Warning.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
-<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="Error.code">
-    <strong>{{Error.code}} - {{Error.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
-<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="Info.code">
-    <strong>{{Info.code}} - {{Info.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="container">
-    <h2>Sumatorio</h2>
-    <br />
-
-    <div class="actions">
-        <button type="button" class="btn btn-secondary btn-action" (click)="volver()">volver</button>
+<link rel="stylesheet" href="/dist/resources/jgaruz/angcomposition/bootstrap.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+  crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="/dist/resources/jgaruz/angcomposition/global.css" />
+<div class="page">
+  <h1 class="title">Summation result</h1>
+  <hr class="separador" />
+  <div class="formulario">
+    <div class="informacion">
+      It is checked in the loop that the parameters inserted according to different formats are correct (i+2).
     </div>
-    <form>
-        <div class="form-group row">
-            <label for="sumatorio" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="number" class="form-control" id="sumatorio" name="sumatorio" [(ngModel)]="sumatorio" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-    </form>
+    <br />
+    <div class="label"><label>Summation result (even numbers from 1 to 20): {{sumatorio}}</label></div>
+    <div class="espacio"><button (click)="volver()" id="return-button" class="button-blueberry buttonBerry-text btn">Return</button></div>
+  </div>
 </div>

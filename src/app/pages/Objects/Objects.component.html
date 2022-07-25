@@ -1,45 +1,41 @@
-<div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="Warning.code">
-    <strong>{{Warning.code}} - {{Warning.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
-<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="Error.code">
-    <strong>{{Error.code}} - {{Error.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
-<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="Info.code">
-    <strong>{{Info.code}} - {{Info.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="container">
-    <h2>Objects</h2>
-    <br />
-
-    <div class="actions">
-        <button type="button" class="btn btn-secondary btn-action" (click)="showProducts(typeId)">showProducts</button>
-        <button type="button" class="btn btn-secondary btn-action" (click)="addType()">addType</button>
-        <button type="button" class="btn btn-secondary btn-action" (click)="volver()">volver</button>
+<link rel="stylesheet" href="/dist/resources/jgaruz/angcomposition/bootstrap.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+  crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="/dist/resources/jgaruz/angcomposition/global.css" />
+<div class="page">
+  <h1 class="title">Products</h1>
+  <hr class="separador" />
+  <div class="mensajes">
+    <div *ngIf="Error.message" class="msg-error"><label class="myLabel myLabel-msg">{{Error.message}}</label></div>
+    <div *ngIf="Warning.message" class="msg-warning"><label class="myLabel myLabel-msg">{{Warning.message}}</label></div>
+    <div *ngIf="Info.message" class="msg-info"><label class="myLabel myLabel-msg">{{Info.message}}</label></div>
+  </div>
+  <div class="formulario">
+    <div class="informacion">
+      With the following form, products can be included according to the selected type, saving the information as an object being this data
+      encapsulated and keeping a price list according to the product.
+      <br />
+      What we tested in this example:
+      <ul>
+        <li>Input object</li>
+        <li>Input list</li>
+      </ul>
     </div>
-    <form>
-        <div class="form-group row">
-            <label for="types" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <thead>
-                    <tr>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of types">
-                    </tr>
-                </tbody>
-            </div> 
-        </div>
-    </form>
+    <div class="field">
+      <div class="label"><label>Product type:</label></div>
+      <select name="typeId" [(ngModel)]="typeId">
+        <option *ngFor="let type of types" value="{{type.id}}">{{type.name}}</option>
+      </select>
+    </div>
+    <div class="espacio">
+      <button (click)="showProducts(typeId)" id="results-button" class="button-blueberry buttonBerry-text btn btn-medium">Products</button>
+      <button (click)="addType()" id="add-button" class="button-blueberry buttonBerry-text btn btn-medium">Add type</button>
+      <button (click)="volver()" id="return-button" class="button-blueberry buttonBerry-text btn btn-space">Return</button>
+    </div>
+  </div>
 </div>

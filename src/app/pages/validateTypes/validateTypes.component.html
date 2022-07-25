@@ -1,107 +1,71 @@
-<div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="Warning.code">
-    <strong>{{Warning.code}} - {{Warning.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
-<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="Error.code">
-    <strong>{{Error.code}} - {{Error.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
-<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="Info.code">
-    <strong>{{Info.code}} - {{Info.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="container">
-    <h2>validateTypes</h2>
-    <br />
-
-    <div class="actions">
-        <button type="button" class="btn btn-secondary btn-action" (click)="addingTypes(typeBoolean, typeDecimal, typeLong, typeList, typeLongText, typeInteger, typeObject, typeString, typePassword)">addingTypes</button>
-        <button type="button" class="btn btn-secondary btn-action" (click)="deleteAll()">deleteAll</button>
-        <button type="button" class="btn btn-secondary btn-action" (click)="volver()">volver</button>
+<link rel="stylesheet" href="/dist/resources/jgaruz/angcomposition/bootstrap.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+  crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="/dist/resources/jgaruz/angcomposition/global.css" />
+<div class="page">
+  <h1 class="title">Testing Types</h1>
+  <hr class="separador" />
+  <div class="mensajes">
+    <div *ngIf="Error.message" class="msg-error"><label class="myLabel myLabel-msg">{{Error.message}}</label></div>
+    <div *ngIf="Warning.message" class="msg-warning"><label class="myLabel myLabel-msg">{{Warning.message}}</label></div>
+    <div *ngIf="Info.message" class="msg-info"><label class="myLabel myLabel-msg">{{Info.message}}</label></div>
+  </div>
+  <div class="formulario">
+    <div class="informacion">
+      With the following form all possible types of data are entered, and data of an object returned by a rest service is obtained.
+      <div>
+        <br />
+        What we tested in this example:
+        <ul>
+          <li>Input variables: Boolean, Decimal, List, Long, LongText, Object, Password and String</li>
+          <li>Reencapsulated data with input object, custom sql data and rest data</li>
+          <li>Iterate list from rest data</li>
+        </ul>
+      </div>
     </div>
-    <form>
-        <div class="form-group row">
-            <label for="typeDecimal" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="number" class="form-control" id="typeDecimal" name="typeDecimal" [(ngModel)]="typeDecimal" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-        <div class="form-group row">
-            <label for="typeLongText" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <textarea class="form-control" id="typeLongText" name="typeLongText" [(ngModel)]="typeLongText" maxlength="250" ></textarea>
-            </div> 
-        </div>
-        <div class="form-group row">
-            <label for="typeString" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" id="typeString" name="typeString" [(ngModel)]="typeString" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-        <div class="form-group row">
-            <label for="typeInteger" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="number" class="form-control" id="typeInteger" name="typeInteger" [(ngModel)]="typeInteger" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-        <div class="form-group row">
-            <label for="nombre" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" id="typeObjectnombre" name="typeObjectnombre" [(ngModel)]="typeObject.nombre" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-        <div class="form-group row">
-            <label for="edad" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="number" class="form-control" id="typeObjectedad" name="typeObjectedad" [(ngModel)]="typeObject.edad" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-        <div class="form-group row">
-            <label for="typeList" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <thead>
-                    <tr>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of typeList">
-                    </tr>
-                </tbody>
-            </div> 
-        </div>
-        <div class="form-group row">
-            <label for="typeLong" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="number" class="form-control" id="typeLong" name="typeLong" [(ngModel)]="typeLong" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-        <div class="form-group row">
-            <label for="typeBoolean" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="checkbox" class="form-control" id="typeBoolean" name="typeBoolean" [(ngModel)]="typeBoolean" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-        <div class="form-group row">
-            <label for="typePassword" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <input type="password" class="form-control" id="typePassword" name="typePassword" [(ngModel)]="typePassword" 
-                    maxlength="250"  minlength="0" />
-                </div> 
-        </div>
-    </form>
+    <div *ngIf="typeName" class="msg-warning results">
+      <h3>Result</h3>
+      <div>
+        <label class="myLabel myLabel-msg"><b>Name: {{typeName}}</b></label>
+      </div>
+      <div>
+        <label class="myLabel myLabel-msg"><b>Value: {{typeValue}}</b></label>
+      </div>
+    </div>
+    <div class="label"><label>Type Boolean:</label></div>
+    <input type="checkbox" name="typeBoolean" [(ngModel)]="typeBoolean" />
+    <div class="label"><label>Type Decimal:</label></div>
+    <input type="number" step="any" name="typeDecimal" [(ngModel)]="typeDecimal" />
+    <div class="label"><label>Type Integer:</label></div>
+    <input type="number" name="typeInteger" [(ngModel)]="typeInteger" />
+    <div class="label"><label>Type List:</label></div>
+    <div *ngFor="let item of typeList"><input type="number" name="price" [(ngModel)]="item.price" class="btn-space" /></div>
+    <div class="label"><label>Type Long:</label></div>
+    <input type="number" name="typeLong" [(ngModel)]="typeLong" />
+    <div class="label"><label>Type LongText:</label></div>
+    <textarea name="typeLongText" [(ngModel)]="typeLongText"></textarea>
+    <div class="label"><label>Type Object:</label></div>
+    <input type="text" [(ngModel)]="typeObject.nombre" />
+    <input type="text" [(ngModel)]="typeObject.edad" class="btn-space" />
+    <div class="label"><label>Type Password:</label></div>
+    <input type="password" name="typePassword" [(ngModel)]="typePassword" />
+    <div class="label"><label>Type String:</label></div>
+    <input type="text" name="typeString" [(ngModel)]="typeString" />
+    <div class="espacio">
+      <button
+        (click)="addingTypes(typeBoolean, typeDecimal, typeLong, typeList, typeLongText, typeInteger, typeObject, typeString, typePassword)"
+        id="save-button"
+        class="button-blueberry buttonBerry-text btn btn-medium"
+      >
+        Add types
+      </button>
+      <button (click)="deleteAll()" id="delete-button" class="button-blueberry buttonBerry-text btn btn-medium">Delete All</button>
+      <button (click)="volver()" id="return-button" class="button-blueberry buttonBerry-text btn btn-space">Return</button>
+    </div>
+  </div>
 </div>

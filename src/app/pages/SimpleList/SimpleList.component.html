@@ -1,45 +1,56 @@
-<div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="Warning.code">
-    <strong>{{Warning.code}} - {{Warning.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
-<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="Error.code">
-    <strong>{{Error.code}} - {{Error.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
-<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="Info.code">
-    <strong>{{Info.code}} - {{Info.message}}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="container">
-    <h2>SimpleList</h2>
-    <br />
-
-    <div class="actions">
-        <button type="button" class="btn btn-secondary btn-action" (click)="execute(names, modValue)">execute</button>
-        <button type="button" class="btn btn-secondary btn-action" (click)="volver()">volver</button>
-        <button type="button" class="btn btn-secondary btn-action" (click)="deleteAll()">deleteAll</button>
+<link rel="stylesheet" href="/dist/resources/jgaruz/angcomposition/bootstrap.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+  crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="/dist/resources/jgaruz/angcomposition/global.css" />
+<div class="page">
+  <h1 class="title">Testing Simple List</h1>
+  <hr class="separador" />
+  <div class="mensajes">
+    <div *ngIf="Error.message" class="msg-error"><label class="myLabel myLabel-msg">{{Error.message}}</label></div>
+    <div *ngIf="Warning.message" class="msg-warning"><label class="myLabel myLabel-msg">{{Warning.message}}</label></div>
+    <div *ngIf="Info.message" class="msg-info"><label class="myLabel myLabel-msg">{{Info.message}}</label></div>
+  </div>
+  <div class="formulario">
+    <div class="informacion">
+      The test validates inserting data from a simple list to bbdd and modify input value.
     </div>
-    <form>
-        <div class="form-group row">
-            <label for="names" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-5">
-                <thead>
-                    <tr>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of names">
-                    </tr>
-                </tbody>
-            </div> 
-        </div>
-    </form>
+    <div *ngIf="newValue!=null && newValue!=undefined" class="msg-warning results">
+      <h3>Result</h3>
+      <div>
+        <label class="myLabel myLabel-msg">
+          <b>
+            Return value:
+            <label id="result-value">{{newValue}}</label>
+          </b>
+        </label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="label"><label>Select some names:</label></div>
+      <ng-select
+        id="ngSelect-2"
+        name="clientId"
+        multiple="true"
+        placeholder="Select names"
+        [(ngModel)]="names"
+        required="true"
+        [items]="people"
+        class="myNgSelect"
+      ></ng-select>
+    </div>
+    <div class="espacio">
+      <button (click)="execute(names, modValue)" id="results-button" class="button-blueberry buttonBerry-text btn btn-medium">
+        Show Result
+      </button>
+      <button (click)="deleteAll()" id="delete-button" class="button-blueberry buttonBerry-text btn btn-medium btn-space">
+        Delete All
+      </button>
+      <button (click)="volver()" id="return-button" class="button-blueberry buttonBerry-text btn btn-space">Return</button>
+    </div>
+  </div>
 </div>
